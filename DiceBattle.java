@@ -70,6 +70,7 @@ public class DiceBattle {
 			}
 			
 			while(true) {
+				System.out.println();
 				p.PDamage = 0;
 				for(int i =0; i<3;i++) {
 					System.out.printf("%d번 주사위 = %d\n",i+1,dices[i]);
@@ -85,6 +86,7 @@ public class DiceBattle {
 			}
 			
 			while(true) {
+				System.out.println();
 				p.PDefense = 0;
 				for(int i =0; i<3;i++) {
 					System.out.printf("%d번 주사위 = %d\n",i+1,dices[i]);
@@ -97,12 +99,13 @@ public class DiceBattle {
 					dices[a] = 0 ;
 					break;
 				}
+				System.out.println();
 			}
 				
-			
+			System.out.println("********************************");
 			
 			enemy.EHP = enemy.EHP - p.PDamage;
-			
+			System.out.printf("%d데미지를 주어 적의 HP를 %d로 만들었습니다.\n",p.PDamage,enemy.EHP);
 			
 			
 			if(p.PSkillnum == 1) {
@@ -128,35 +131,40 @@ public class DiceBattle {
 			
 			else if(p.PSkillnum ==6 ) {
 				enemy.EHP = enemy.EHP - p.PDamage;
+				System.out.printf("%d데미지를 주어 적의 HP를 %d로 만들었습니다.\n",p.PDamage,enemy.EHP);
 			}
 			
 			if(enemy.EDamage>p.PDefense) {
 				p.PHp = p.PHp + p.PDefense - enemy.EDamage;
 			}
-			else p.PHp = p.PHp;
+			else p.PHp = p.PHp; System.out.println("완벽한 방어를 통해 체력이 닳지 않았습니다.");
 			
 			turn++;
 		
 		}		
 		if(p.PHp<=0) {
+			System.out.println("이걸 지네....");
 			rank = 5;
+			System.out.println("당신의 랭크는:"+rank);
 		}
 		else if(p.PHp > 0 && turn <=3) {
 			rank = 1;
+			System.out.println("당신의 랭크는:"+rank);
 		}
 		else if(3<turn &&turn<=5) {
 			rank =2;
+			System.out.println("당신의 랭크는:"+rank);
 		}
 		else if(5<turn &&turn<=7) {
 			rank =3;
-		}
-		else if(7<turn &&turn<=9) {
-			rank =4;
+			System.out.println("당신의 랭크는:"+rank);
 		}
 		else {
-			rank = 5;
+			rank =4;
+			System.out.println("당신의 랭크는:"+rank);
 		}
-		System.out.println(rank);
+		
+		
 	}
 	
 	
@@ -180,7 +188,7 @@ class Enemy{
 //보드 넘버에 따른 추가 체력 줄 예정
 	void setEnemyDamage() {
 		EDamage = 0;
-		this.EDamage = 6 + D6.nextInt(-5,5);
+		this.EDamage = 6 + D6.nextInt(-3,5);
 	}
 //보드 넘버에 따른 추가 데미지 수치 줄 예정
 	
@@ -206,7 +214,7 @@ class PlayerCha {
 		System.out.println("스킬 2번은 발동시 이번턴이 끝날때 적에게 데미지를 2 줍니다");
 		System.out.println("스킬 3번은 발동시 기분이 좋아집니다.");
 		System.out.println("스킬 4번은 발동시 체력을 6 회복합니다.");
-		System.out.println("스킬 5번은 발동시 이번턴에 데미지를 받지 않습니다.");
+		System.out.println("스킬 5번은 발동시 이번 턴에 완벽한 방어를 합니다.");
 		System.out.println("스킬 6번은 발동시 아까 할당한 데미지 만큼 데미지를 더 줍니다.");
 	}
 	
