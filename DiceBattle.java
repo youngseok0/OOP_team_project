@@ -39,6 +39,7 @@ public class DiceBattle {
 		
 			enemy.setEnemyDamage();
 			enemy.check();
+			System.out.println("플레이어의 남은 체력 :"+p.PHp);
 			Rolldice(dices);
 			
 			while(true) {
@@ -47,11 +48,38 @@ public class DiceBattle {
 				if(Arrays.asList(a).contains(dices)) {
 					p.PDamage = a;
 					dices = removeElement(dices, a);
+					break;
+				}
+				else continue;
+			}
+			
+			while(true) {
+				for(int i =0; i<3;i++) {
+					System.out.println(dices[i]);
+				}		
+				System.out.print("몇 방어도를 얻을지, 남은 눈금 중에서 입력하세요 ->");
+				int b = Scan.nextInt();
+				if(Arrays.asList(b).contains(dices)) {
+					p.PDamage = b;
+					dices = removeElement(dices, b);
+					break;
+					}				
+				else continue;
 				}
 				
-				
-			} // 1. int a 받고, a가 배열 안에 수면 PDamage = a 하고, 배열에서 a제거. 아니면 다시 돌아가서 몇 데미지를 줄지 나온 눈금중에서 입력받기
-		 
+			while(true) {
+				for(int i =0; i<3;i++) {
+					System.out.println(dices[i]);
+				}		
+				System.out.print("어떤 스킬을 쓸지 스킬 번호를, 남은 눈금 중에서 입력하세요 ->");
+				int c = Scan.nextInt();
+				if(Arrays.asList(c).contains(dices)) {
+					p.PDamage = c;
+					dices = removeElement(dices, c);
+					break;
+					}				
+				else continue;
+				}
 		}
 	}
 	
@@ -76,7 +104,7 @@ class Enemy{
 //보드 넘버에 따른 추가 체력 줄 예정
 	void setEnemyDamage() {
 		EDamage = 0;
-		this.EDamage = 6 + D6.nextInt(-5,6);
+		this.EDamage = 6 + D6.nextInt(-5,5);
 	}
 //보드 넘버에 따른 추가 데미지 수치 줄 예정
 	
