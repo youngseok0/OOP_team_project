@@ -2,6 +2,9 @@ package teamproject;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Arrays;
+
+
 
 public class DiceBattle {
 	static void Rolldice(int[] dices) {
@@ -15,11 +18,16 @@ public class DiceBattle {
 	}
 	//주사위를 세번 굴려서 배열에 넣는 메서드, 또한 그 배열에 저장된 주사위 3개 출력하는 메서드
 	
-	
+	public static int[] removeElement(int[] arr, int item) {
+        return Arrays.stream(arr)
+                .filter(i -> i != item)
+                .toArray();
+    }
 	
 	public static void main(String[] args) {
 		Enemy enemy = new Enemy();
 		PlayerCha p = new PlayerCha();
+		Scanner Scan = new Scanner(System.in);
 		
 		int[] dices = new int[3];
 		
@@ -32,7 +40,18 @@ public class DiceBattle {
 			enemy.setEnemyDamage();
 			enemy.check();
 			Rolldice(dices);
-		
+			
+			while(true) {
+				System.out.print("몇 데미지를 줄지, 나온 눈금 중에서 입력하세요 ->");
+				int a = Scan.nextInt();
+				if(Arrays.asList(a).contains(dices)) {
+					p.PDamage = a;
+					dices = removeElement(dices, a);
+				}
+				
+				
+			}
+		 
 		}
 	}
 	
