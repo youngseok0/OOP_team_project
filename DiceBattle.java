@@ -50,7 +50,7 @@ public class DiceBattle {
 				}
 				
 				
-			}
+			} // 1. int a 받고, a가 배열 안에 수면 PDamage = a 하고, 배열에서 a제거. 아니면 다시 돌아가서 몇 데미지를 줄지 나온 눈금중에서 입력받기
 		 
 		}
 	}
