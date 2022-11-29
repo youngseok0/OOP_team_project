@@ -16,6 +16,7 @@ public class DiceBattle {
 	//주사위를 세번 굴려서 배열에 넣는 메서드, 또한 그 배열에 저장된 주사위 3개 출력하는 메서드
 	
 	
+	
 	public static void main(String[] args) {
 		Enemy enemy = new Enemy();
 		PlayerCha p = new PlayerCha();
@@ -65,6 +66,7 @@ class Enemy{
 
 class PlayerCha {
 	Random D6 = new Random();
+	Scanner Scan = new Scanner(System.in);
 	
 	public int PHp;
 	public int PDamage;
@@ -73,9 +75,10 @@ class PlayerCha {
 	
 	void setPHp() {
 		this.PHp = 20 + D6.nextInt(1,6)*2;
+		System.out.printf("주사위를 통해 정해진 당신의 체력은 %d입니다",PHp);
 	}
 	
+	
+	
 //후에 보드 넘버에 따른 추가 체력 계수 줄 예정
-	
-	
 }
