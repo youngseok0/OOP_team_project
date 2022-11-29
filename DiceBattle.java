@@ -20,6 +20,7 @@ public class DiceBattle {
 		Enemy enemy = new Enemy();
 		System.out.println("적이 나타났습니다.");
 		enemy.setEnemyHp();
+		
 		enemy.setEnemyDamage();
 		enemy.check();
 		Rolldice();
@@ -30,8 +31,8 @@ public class DiceBattle {
 class Enemy{
 	Random D6 = new Random();
 	
-	int EHP;
-	int EDamage;
+	public int EHP;
+	public int EDamage;
 	
 	void setEnemyHp() {
 		this.EHP = 18 + D6.nextInt(-6,10);
@@ -47,5 +48,8 @@ class Enemy{
 }
 
 class MyCha {
-	
+	public int MHP;
+	public int MDamage;
+	public int MDefense;
+	public int MSkillnum;
 }
