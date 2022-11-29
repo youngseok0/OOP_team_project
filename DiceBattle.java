@@ -4,10 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class DiceBattle {
-	static void Rolldice() {
+	static void Rolldice(int[] dices) {
 		Random D6 = new Random();
 		System.out.println("주사위를 세번 굴립니다. 나온 숫자는!");
-		int[] dices = new int[3];
+		
 		for(int i =0; i<3;i++) {
 			dices[i] = D6.nextInt(1,7);
 			System.out.println(dices[i]);
@@ -21,6 +21,8 @@ public class DiceBattle {
 		Enemy enemy = new Enemy();
 		PlayerCha p = new PlayerCha();
 		
+		int[] dices = new int[3];
+		
 		System.out.println("적이 나타났습니다.");
 		enemy.setEnemyHp(); //적 초기 체력 설정
 		p.setPHp(); //플레이어 초기 체력 설정
@@ -29,7 +31,7 @@ public class DiceBattle {
 		
 			enemy.setEnemyDamage();
 			enemy.check();
-			Rolldice();
+			Rolldice(dices);
 		
 		}
 	}
