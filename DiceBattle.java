@@ -135,7 +135,9 @@ public class DiceBattle {
 			}
 			
 			if(enemy.EDamage>p.PDefense) {
+				System.out.print("이번 턴 체력 "+p.PHp+"에서");
 				p.PHp = p.PHp + p.PDefense - enemy.EDamage;
+				System.out.printf("적의 %d 데미지의 공격중 %d 데미지를 막아 %d Hp가 되었습니다\n",enemy.EDamage,p.PDefense,p.PHp);
 			}
 			else p.PHp = p.PHp; System.out.println("완벽한 방어를 통해 체력이 닳지 않았습니다.");
 			
