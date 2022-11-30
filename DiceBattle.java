@@ -1,4 +1,4 @@
-package teamproject;
+package team_project;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -20,7 +20,7 @@ public class DiceBattle {
 	
 
 	
-	public static void main(String[] args) {
+	public int diceBattleMain() {
 		int rank; // 게임 클리어 등급
 		
 		Enemy enemy = new Enemy();
@@ -166,6 +166,7 @@ public class DiceBattle {
 			System.out.println("당신의 랭크는:"+rank);
 		}
 		
+		return rank;
 		
 	}
 	
