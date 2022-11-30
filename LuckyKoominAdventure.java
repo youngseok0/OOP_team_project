@@ -17,6 +17,8 @@ class Board {
 	int[][] game_index;
 	int game_count;
 	
+	int result = 0;
+	
 	public Board(int row, int column) {
 		this.row = row;
 		this.column = column;
@@ -248,7 +250,9 @@ class Board {
 	
 	void playMinigame() throws InterruptedException {
 		if (findGame() == 1) {
-			System.out.println("A게임 진행");
+			System.out.println("DICE BATTLE\n\n");
+			DiceBattle db = new DiceBattle();
+			result += db.diceBattleMain();
 		}
 		else if (findGame() == 2) {
 			System.out.println("B게임 진행");
