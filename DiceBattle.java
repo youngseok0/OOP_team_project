@@ -139,11 +139,14 @@ public class DiceBattle {
 				p.PHp = p.PHp + p.PDefense - enemy.EDamage;
 				System.out.printf("적의 %d 데미지의 공격중 %d 데미지를 막아 %d Hp가 되었습니다\n",enemy.EDamage,p.PDefense,p.PHp);
 			}
-			else p.PHp = p.PHp; System.out.println("완벽한 방어를 통해 체력이 닳지 않았습니다.");
-			
+			else {p.PHp = p.PHp; 
+			      System.out.println("완벽한 방어를 통해 체력이 닳지 않았습니다.");
+			}
 			turn++;
 		
 		}		
+		System.out.println("싸움이 종료되었습니다");
+		System.out.println();
 		if(p.PHp<=0) {
 			System.out.println("이걸 지네....");
 			rank = 5;
